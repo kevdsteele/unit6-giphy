@@ -32,7 +32,7 @@ $.ajax({
     }
 
 
-    $(function(){
+    /* $(function(){
         var marvelAPI = 'https://gateway.marvel.com/v1/public/comics';
         $.getJSON( marvelAPI, {
             apikey: marvelPubKey
@@ -52,7 +52,7 @@ $.ajax({
               $('#results').append(output);
           });
            
-        });
+        });*/
 
     
   });
