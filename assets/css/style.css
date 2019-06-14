@@ -1,9 +1,61 @@
 #results{
 float:left;
-width:66%;
+width:100%;
+
 }
 
-#marvel-info {
+.giphyBtn {
+height:150px;
+width:200px;
+margin-right:5px;
+margin-bottom:5px;
+
+
+}
+
+.giphyRating {
+color:black;
+
+}
+
+.giphyCont {
+float:left;
+}
+
+.fav {
 float:right;
-width:33%;
+margin-right:10px;
+}
+
+/* Fav check*/
+
+
+input[type=checkbox].css-checkbox {
+    position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left:40px;
+    height:35px; 
+    display:inline-block;
+    line-height:35px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:35px;
+    vertical-align:middle;
+    cursor:pointer;
+
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -35px;
+}
+label.css-label {
+background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_8e18963f69ee967a38963e6329ca386d.png);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
 }

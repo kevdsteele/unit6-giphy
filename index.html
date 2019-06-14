@@ -6,7 +6,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
 <script type ="text/javascript" src="assets/javascript/script.js"></script>
@@ -14,32 +14,52 @@
 </head>
 
 <body>
+<div class="container">
+<div class="row">
+ 
+    <div class="btn-group" role="group" aria-label="Basic example" id="buttons">
+       
+      </div>
 
- <div id="buttons">
-Buttons go here
- </div> 
-
- <div id="search-box">
- Search box here 
 </div>
 
-<div id="marvel-characters">
-Favorites go here
-</div>
+ 
+        <div class="input-group mb-3" id="search-box">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+
+
+
+        <div class="card">
+                <h5 class="card-header" >My favorites</h5>
+                <div class="card-body" id="favs">
+               
+                </div>
+              </div>
+
  
  
 
-<div id="results"> 
+
+        <div class="card">
+                <h5 class="card-header" >Results</h5>
+                <div class="card-body " id="results">
+               
+                </div>
+                <div>
+                        <h5 class="card-header">Related Results</h5>
+                </div>
+              </div>
+
+
+
+
+
 
 </div>
-
-<div id="marvel-info">
-Marvel results here
-</div>
-
-
-
-
 
  
 
