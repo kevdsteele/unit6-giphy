@@ -6,6 +6,7 @@ var giphyKey = "ebLf7WRabdqXmFc7BjhdTDPDNiP4bA4T";
 
 var Search ="";
 
+var offset = 0;
 
 
 
@@ -15,19 +16,24 @@ var Search ="";
 
 
 function getGiphy(Search) {
-  var giphyUrl ="https://api.giphy.com/v1/gifs/search?q="+ Search + "&api_key=" +giphyKey + "&limit=10";
+  console.log("offset is " + offset);
+  var giphyUrl ="https://api.giphy.com/v1/gifs/search?q="+ Search + "&api_key=" +giphyKey + "&limit=10&offset=" + offset;
   $.ajax({
     url: giphyUrl,
     method: "GET"
   }).then(function(response) {
     console.log(response);
     
-    console.log(response.data[0].images.fixed_height_small_still.url);
-
+   
+    
+    $("#show-more").css("display", "block");
     for (i=0; i < 10; i++){
+
+ 
+
     var containerDiv = $("<div>");
     containerDiv.addClass("giphyCont");
-    containerDiv.attr("id", "gc"+i);
+    containerDiv.attr("id", response.data[i].id );
     $("#results").append(containerDiv);
 
     var imgDiv = $("<img>");
@@ -37,19 +43,28 @@ function getGiphy(Search) {
     imgDiv.addClass("giphyBtn");
     imgDiv.attr("isClicked", "false");
     imgDiv.attr("id", "giphy"+i);
-    $("#gc"+i).append(imgDiv);
+    $("#"+response.data[i].id ).append(imgDiv);
     var ratingDiv = $("<div>");
     ratingDiv.html("Rated " + response.data[i].rating);
     ratingDiv.addClass("giphyRating");
-    ratingDiv.attr("id", "gr"+i);
-    $("#gc"+i).append(ratingDiv);
+    ratingDiv.attr("id", "gr"+response.data[i].id );
+    $("#"+response.data[i].id ).append(ratingDiv);
 
-    var favCheckbox = $('<input type ="checkbox" name="' + Search+i + '" class="css-checkbox" id="'+ Search + i + '"> <label for="' + Search+i +'" class="css-label fav"></label>');
+    var downIcon=$('<a download="download.gif" href="'+ response.data[i].images.fixed_height_small.url + '"> <i class="fas fa-cloud-download-alt"></i>');
+   
+    
+
+    $("#gr"+response.data[i].id ).append(downIcon);
+
+    /* <i class="fas fa-cloud-download-alt"></i>
+    */
+
+    var favCheckbox = $('<input type ="checkbox" name="' + Search+response.data[i].id  + '" class="css-checkbox" id="'+ Search + response.data[i].id  + '"> <label for="' + Search+response.data[i].id  +'" class="css-label fav"></label>');
    favCheckbox.attr("gid", response.data[i].id );
    favCheckbox.attr("clicked", response.data[i].images.fixed_height_small.url);
    favCheckbox.attr("notClicked", response.data[i].images.fixed_height_small_still.url )
   favCheckbox.attr("rating", response.data[i].rating)
-    $("#gr"+i).append(favCheckbox);
+    $("#gr"+response.data[i].id ).append(favCheckbox);
 
 
    
@@ -213,6 +228,15 @@ $(document).on("click","#clear", function (event){
 $("#favs").empty();
 favCharacters=[];
 localStorage.clear();
+
+});
+
+$(document).on("click", "#show-more", function(event) {
+event.preventDefault();
+offset=offset+10;
+console.log("offset is now " + offset)
+getGiphy(Search);
+
 
 });
 
