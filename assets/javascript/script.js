@@ -218,6 +218,7 @@ createButtons(characters);
 /* Click button that parses value from button clicked to egt Giphys*/
 $(document).on("click",".char-btn", function (event){
   event.preventDefault();
+offset=0;
 $("#results").empty();
 Search=$(this).attr("char-name");
 console.log("char btn clicked");
