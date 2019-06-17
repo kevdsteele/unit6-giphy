@@ -50,8 +50,9 @@ function getGiphy(Search) {
     ratingDiv.attr("id", "gr"+response.data[i].id );
     $("#"+response.data[i].id ).append(ratingDiv);
 
-    var downIcon=$('<a target="_blank" href="'+ response.data[i].images.fixed_height_small.url + '" download> <i class="fas fa-cloud-download-alt"></i>');
-   
+    var downIcon=$('<i class="fas fa-cloud-download-alt"></i>');
+   downIcon.addClass("download");
+   downIcon.attr("link", response.data[i].images.fixed_height_small.url);
     
 
     $("#gr"+response.data[i].id ).append(downIcon);
@@ -280,6 +281,9 @@ if (!charExists) {
 
 
 });
+
+
+
 
 $(document).on("click", ".giphyBtn", function(event){
   event.preventDefault();
