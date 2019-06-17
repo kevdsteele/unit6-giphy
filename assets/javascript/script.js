@@ -50,7 +50,7 @@ function getGiphy(Search) {
     ratingDiv.attr("id", "gr"+response.data[i].id );
     $("#"+response.data[i].id ).append(ratingDiv);
 
-    var downIcon=$('<a download="download.gif" href="'+ response.data[i].images.fixed_height_small.url + '"> <i class="fas fa-cloud-download-alt"></i>');
+    var downIcon=$('<a href="'+ response.data[i].images.fixed_height_small.url + '" download> <i class="fas fa-cloud-download-alt"></i>');
    
     
 
