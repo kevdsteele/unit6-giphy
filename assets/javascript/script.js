@@ -115,6 +115,27 @@ createFavs();
 
   
 /*end getGiphy*/
+
+var movieURL = "https://www.omdbapi.com/?t=" + Search + "&y=&plot=short&apikey=3f41a1ad";
+
+$.ajax({
+  url: movieURL,
+  method: "GET"
+}).then(function(movieResponse) {
+  console.log(movieResponse);
+  $("#related-results").empty();
+  var movieDiv=$("<div>");
+  movieDiv.html(movieResponse.Title);
+  var moviePoster=$("<img>");
+  moviePoster.attr("src", movieResponse.Poster);
+$("#related-results").append(movieDiv,moviePoster);
+
+
+/* end movie search*/  
+});
+
+
+
 };
 
 
