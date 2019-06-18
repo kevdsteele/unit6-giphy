@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var characters= ["Thor", "Spiderman", "Iron Man", "Captain America", "Hulk", "Black Widow", "Black Panther", "Hawkeye"]
+var characters= ["Thor", "Spider Man", "Iron Man", "Captain America", "Hulk", "Black Widow", "Black Panther", "Hawkeye"]
 
 var giphyKey = "ebLf7WRabdqXmFc7BjhdTDPDNiP4bA4T";
 
@@ -33,8 +33,14 @@ function getGiphy(Search) {
 
     var containerDiv = $("<div>");
     containerDiv.addClass("giphyCont");
+   
     containerDiv.attr("id", response.data[i].id );
     $("#results").append(containerDiv);
+
+    var header =$("<div>");
+    header.html("ID: " + response.data[i].id);
+    header.addClass("gif-title card-header bg-secondary");
+    $("#" + response.data[i].id).append(header);
 
     var imgDiv = $("<img>");
     imgDiv.attr("src", response.data[i].images.fixed_height_small_still.url);
@@ -45,14 +51,17 @@ function getGiphy(Search) {
     imgDiv.attr("id", "giphy"+i);
     $("#"+response.data[i].id ).append(imgDiv);
     var ratingDiv = $("<div>");
-    ratingDiv.html("Rated " + response.data[i].rating);
-    ratingDiv.addClass("giphyRating");
+
+    var giphyRating = response.data[i].rating;
+   
+    ratingDiv.html("Rated " + giphyRating.toUpperCase());
+    ratingDiv.addClass("giphyRating card-footer bg-secondary");
     ratingDiv.attr("id", "gr"+response.data[i].id );
     $("#"+response.data[i].id ).append(ratingDiv);
 
-    var downIcon=$('<i class="fas fa-cloud-download-alt"></i>');
+    var downIcon=$('<a target="_blank" href="' + response.data[i].images.fixed_height_small.url + '"download> <i class="fas fa-2x fa-cloud-download-alt"></i>');
    downIcon.addClass("download");
-   downIcon.attr("link", response.data[i].images.fixed_height_small.url);
+   
     
 
     $("#gr"+response.data[i].id ).append(downIcon);
@@ -128,7 +137,13 @@ $.ajax({
   movieDiv.html(movieResponse.Title);
   var moviePoster=$("<img>");
   moviePoster.attr("src", movieResponse.Poster);
+  moviePoster.addClass("mov-poster");
 $("#related-results").append(movieDiv,moviePoster);
+var moviePlot=$("<p>");
+moviePlot.text(movieResponse.Plot);
+moviePlot.addClass("plot-text");
+$("#related-results").append(moviePlot);
+
 
 
 /* end movie search*/  
@@ -202,7 +217,7 @@ function createButtons(characters) {
    
     var button = $("<button>");
   
-    button.addClass("btn btn-secondary char-btn");
+    button.addClass("btn btn-secondary char-btn navbar-btn");
     
     button.attr("char-name", characters[i]);
 
