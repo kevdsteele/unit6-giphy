@@ -1,6 +1,8 @@
-#results {
+#results, #favs {
 margin-left:75px;
 }
+
+
 
 .giphyBtn {
 height:150px;
@@ -111,7 +113,7 @@ padding-left:20px;
 
 #clear {
 padding-left:20px;
-padding-bottom:20px;
+padding-top:10px;
 }
 
 .btn-sec-clr, .search {
