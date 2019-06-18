@@ -66,8 +66,7 @@ function getGiphy(Search) {
 
     $("#gr"+response.data[i].id ).append(downIcon);
 
-    /* <i class="fas fa-cloud-download-alt"></i>
-    */
+  
 
     var favCheckbox = $('<input type ="checkbox" name="' + Search+response.data[i].id  + '" class="css-checkbox" id="'+ Search + response.data[i].id  + '"> <label for="' + Search+response.data[i].id  +'" class="css-label fav"></label>');
    favCheckbox.attr("gid", response.data[i].id );
@@ -95,8 +94,8 @@ function getGiphy(Search) {
 for (i=0; i < favCharacters.length; i++) {
  if (favCharacters[i].CharID === favSelected) {
    favExists =true;
-
-
+   alert("This GIPHY is already in your Favorites");
+ 
  }
 
 
@@ -165,6 +164,11 @@ for (i=0;i < favCharacters.length; i++) {
   containerDiv.attr("id", "favgc"+i);
   $("#favs").append(containerDiv);
 
+  var header =$("<div>");
+  header.html("Favorite " + (i + 1));
+  header.addClass("gif-title card-header");
+  $("#favgc" + i).append(header);
+
   var imgDiv = $("<img>");
   imgDiv.attr("src", favCharacters[i].Still);
   imgDiv.attr("notClicked", favCharacters[i].Still);
@@ -174,17 +178,20 @@ for (i=0;i < favCharacters.length; i++) {
   imgDiv.attr("id", "favgiphy"+i);
   $("#favgc"+i).append(imgDiv);
   var ratingDiv = $("<div>");
-  ratingDiv.html("Rated " + favCharacters[i].Rating);
-  ratingDiv.addClass("giphyRating");
+
+  ratingDiv.html("Rated " + favCharacters[i].Rating.toUpperCase());
+  ratingDiv.addClass("giphyRating card-footer");
   ratingDiv.attr("id", "favgr"+i);
   $("#favgc"+i).append(ratingDiv);
 
- /* var favCheckbox = $('<input type ="checkbox" name="' + Search+i + '" class="css-checkbox" id="'+ Search + i + '"> <label for="' + Search+i +'" class="css-label fav"></label>');
- favCheckbox.attr("gid", Search+i );
- favCheckbox.attr("clicked", response.data[i].images.fixed_height_small.url);
- favCheckbox.attr("notClicked", response.data[i].images.fixed_height_small_still.url )
-  
-  $("#gr"+i).append(favCheckbox);*/
+  var downIcon=$('<a target="_blank" href="' +favCharacters[i].Still + '"download> <i class="fas fa-1x fa-cloud-download-alt"></i>');
+  downIcon.addClass("download");
+  $("#favgr"+i).append(downIcon);
+
+  var favCheckbox = $('<input type ="checkbox" name="' + i  + '" class="css-checkbox" id="'+ i  + '"> <label for="' + i +'" class="css-label fav"></label>');
+  favCheckbox.attr("gid", i);
+  favCheckbox.addClass("rem-fav");
+   $("#favgr"+i ).append(favCheckbox);
 
 
 /*end loop*/  
