@@ -21,28 +21,26 @@
 <div class="container">
 
   
-    <nav class="navbar navbar-expand-md navbar-light bg-light ">
+   <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light ">
         <a class="navbar-brand" href="#">Characters</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#buttons" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
-        <div class="collapse navbar-collapse" id="buttons">
-          
-        </div> 
+        
            
           
       
-      </nav>
-  
-    
+      </nav> -->
+      <div class="card card-margin-bot">
+      <h5 class="card-header " id="char-header">Marvel Character GIPHY API Search</h5>
+      <div class="card-body" id="buttons">
 
-
-
+      </div>
           
             <div class="input-group mb-3" id="search-box">
                 <div class="input-group-prepend col-xs-3">
-                  <span class="input-group-text" id="inputGroup-sizing-default">Search for Character</span>
+                  <span class="input-group-text bg-secondary search" id="inputGroup-sizing-default">Search for New Character</span>
                 </div>
                 <div class="col-xs-3">
                 <input type="text" id="add-text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -51,38 +49,58 @@
                 </div> 
                 
             </div>
-          
+
+       
+      </div>  
 
 
-              <div class="card" id="favorites-header">
-                <h5 class="card-header" >My favorites</h5>
+              <div class="card card-margin-bot" >
+                <h5 class="card-header " id="favorites-header">My favorites</h5>
                 <div class="card-body" id="favs">
                
                 </div>
-                <span><button type="button" class="btn btn-secondary" id="clear">Clear all </button>  
-                </span>
+                <div id="clear">
+                  <button type="button" class="btn btn-secondary" >Clear all </button>  
+                </div>
               </div>
 
  
  
 
 
-              <div class="card">
-                <h5 class="card-header" id="results-header">Results</h5>
-                <span><button type="button" class="btn btn-secondary" id="show-more">Show More </button>  
-                </span>
-                <div class="card-body " id="results">
+              <div class="card card-margin-bot">
+
+                 <h5 class="card-header" id="results-header">Results</h5>
+                   <div id="show-more">
+                     <button type="button" class="btn btn-secondary">Show 10 More </button>  
+                  </div>
+                
+                  <div class="card-body " id="results">
                
-                </div>
-                <div>
-                        <h5 class="card-header" >Related Movie Results</h5>
-                        <div id="related-results">
+                  </div>
 
-                        </div>
-                        
-                </div>
-                <a target="_blank" href="http://media1.giphy.com/media/FzyRvxMNDLQZi/480w_s.jpg?cid=f8ae28695d07c662672e324332707be8&rid=480w_s.jpg" download="pic.jpg">Download</a>
+               
+                
               </div>
+
+              <div class="card card-margin-bot">
+
+                  <h5 class="card-header" id="related-header">Related Movie Results</h5>
+
+                  <div class="row card-body">
+
+                      <div class="col-md-4" id="mov-poster">
+
+                      </div>
+
+                      <div class="col-md-4" id="mov-info">
+                      
+                      </div>
+
+                  </div>
+            </div>
+                  
+          
 
 
 

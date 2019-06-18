@@ -39,7 +39,7 @@ function getGiphy(Search) {
 
     var header =$("<div>");
     header.html("ID: " + response.data[i].id);
-    header.addClass("gif-title card-header bg-secondary");
+    header.addClass("gif-title card-header");
     $("#" + response.data[i].id).append(header);
 
     var imgDiv = $("<img>");
@@ -55,11 +55,11 @@ function getGiphy(Search) {
     var giphyRating = response.data[i].rating;
    
     ratingDiv.html("Rated " + giphyRating.toUpperCase());
-    ratingDiv.addClass("giphyRating card-footer bg-secondary");
+    ratingDiv.addClass("giphyRating card-footer");
     ratingDiv.attr("id", "gr"+response.data[i].id );
     $("#"+response.data[i].id ).append(ratingDiv);
 
-    var downIcon=$('<a target="_blank" href="' + response.data[i].images.fixed_height_small.url + '"download> <i class="fas fa-2x fa-cloud-download-alt"></i>');
+    var downIcon=$('<a target="_blank" href="' + response.data[i].images.fixed_height_small.url + '"download> <i class="fas fa-1x fa-cloud-download-alt"></i>');
    downIcon.addClass("download");
    
     
@@ -132,17 +132,18 @@ $.ajax({
   method: "GET"
 }).then(function(movieResponse) {
   console.log(movieResponse);
-  $("#related-results").empty();
-  var movieDiv=$("<div>");
-  movieDiv.html(movieResponse.Title);
+ $("#mov-poster").empty();
+ $("#mov-info").empty();
+  var movieTitle=$("<p>");
+  movieTitle.text(movieResponse.Title);
   var moviePoster=$("<img>");
   moviePoster.attr("src", movieResponse.Poster);
-  moviePoster.addClass("mov-poster");
-$("#related-results").append(movieDiv,moviePoster);
+
+$("#mov-poster").append(moviePoster);
 var moviePlot=$("<p>");
 moviePlot.text(movieResponse.Plot);
 moviePlot.addClass("plot-text");
-$("#related-results").append(moviePlot);
+$("#mov-info").append(movieTitle, moviePlot);
 
 
 
@@ -217,7 +218,7 @@ function createButtons(characters) {
    
     var button = $("<button>");
   
-    button.addClass("btn btn-secondary char-btn navbar-btn");
+    button.addClass("btn char-btn navbar-btn");
     
     button.attr("char-name", characters[i]);
 
