@@ -20,8 +20,8 @@
 
 <div class="container">
 
-
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+  
+    <nav class="navbar navbar-expand-md navbar-light bg-light ">
         <a class="navbar-brand" href="#">Characters</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#buttons" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,24 +34,27 @@
           
       
       </nav>
- 
+  
     
 
 
 
- 
+          
             <div class="input-group mb-3" id="search-box">
-                <div class="input-group-prepend">
+                <div class="input-group-prepend col-xs-3">
                   <span class="input-group-text" id="inputGroup-sizing-default">Search for Character</span>
                 </div>
+                <div class="col-xs-3">
                 <input type="text" id="add-text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <span><button type="button" class="btn btn-secondary" id="add">Add </button>  
-                </span>  
+                </div>
+                <div class="col-xs-3"><button type="button" class="btn btn-secondary" id="add">Add </button>  
+                </div> 
+                
             </div>
+          
 
 
-
-              <div class="card">
+              <div class="card" id="favorites-header">
                 <h5 class="card-header" >My favorites</h5>
                 <div class="card-body" id="favs">
                
