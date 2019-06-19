@@ -116,13 +116,30 @@ padding-left:20px;
 padding-top:10px;
 }
 
+#buttons{
+padding-top:10px;
+padding-bottom:5px;
+}
+
 .btn-sec-clr, .search {
 background-color: #CA3E47;
 color:white;
 }
 
+.info {
+font-size: 12px;
+color:#CA3E47;
+padding-left:20px;
+padding-top:5px;
+}
 
-
+.info-1 {
+    font-size: 16px;
+    color:#145374;
+    padding-left:20px;
+    padding-bottom:5px;
+    padding-top:5px;
+    }
 
 
 .mov-poster {

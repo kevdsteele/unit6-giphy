@@ -190,6 +190,7 @@ for (i=0;i < favCharacters.length; i++) {
 
   var favCheckbox = $('<input type ="checkbox" name="' + i  + '" class="css-checkbox" id="'+ i  + '"> <label for="' + i +'" class="css-label fav"></label>');
   favCheckbox.attr("gid", i);
+  favCheckbox.attr("checked", true);
   favCheckbox.addClass("rem-fav");
    $("#favgr"+i ).append(favCheckbox);
 
@@ -285,6 +286,22 @@ getGiphy(Search);
 
 
 });
+
+ 
+    $(document).on("click", ".rem-fav", function() {
+      // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
+      var remFav = $(this).attr("gid");
+
+      // Deletes the item marked for deletion
+      favCharacters.splice(remFav, 1);
+
+      // Update the todos on the page
+      createFavs(favCharacters);
+
+      // Save the todos into localstorage.
+      // We need to use JSON.stringify to turn the list from an array into a string
+      localStorage.setItem("favorites", JSON.stringify(favCharacters));
+    })
 
 
 /*Get local array of favorite characters */
