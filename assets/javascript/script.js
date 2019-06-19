@@ -53,6 +53,7 @@ $(document).ready(function () {
         imgDiv.addClass("giphyBtn");
         imgDiv.attr("isClicked", "false");
         imgDiv.attr("id", "giphy" + i);
+        imgDiv.attr("alt", response.data[i].title);
         $("#" + response.data[i].id).append(imgDiv);
         var ratingDiv = $("<div>");
 
@@ -72,8 +73,9 @@ $(document).ready(function () {
         var favCheckbox = $('<input type ="checkbox" name="' + Search + response.data[i].id + '" class="css-checkbox" id="' + Search + response.data[i].id + '"> <label for="' + Search + response.data[i].id + '" class="css-label fav"></label>');
         favCheckbox.attr("gid", response.data[i].id);
         favCheckbox.attr("clicked", response.data[i].images.fixed_height_small.url);
-        favCheckbox.attr("notClicked", response.data[i].images.fixed_height_small_still.url)
-        favCheckbox.attr("rating", response.data[i].rating)
+        favCheckbox.attr("notClicked", response.data[i].images.fixed_height_small_still.url);
+        favCheckbox.attr("rating", response.data[i].rating);
+        favCheckbox.attr("alt", response.data[i].title);
         $("#gr" + response.data[i].id).append(favCheckbox);
 
 
@@ -89,6 +91,7 @@ $(document).ready(function () {
         var favStillLink = $(this).attr("notClicked");
         var favAniLink = $(this).attr("clicked");
         var favRating = $(this).attr("rating");
+        var favAlt= $(this).attr("alt");
 
         var favExists = false;
 
@@ -105,7 +108,7 @@ $(document).ready(function () {
 
         console.log("does it exist " + favExists);
         if (!favExists) {
-          favCharacters.push({ "CharID": favSelected, "Still": favStillLink, "Ani": favAniLink, "Rating": favRating });
+          favCharacters.push({ "CharID": favSelected, "Still": favStillLink, "Ani": favAniLink, "Rating": favRating, "Alt": favAlt });
           localStorage.setItem("favorites", JSON.stringify(favCharacters));
           console.log("fav clicked");
           console.log(favCharacters);
@@ -193,6 +196,7 @@ $(document).ready(function () {
       imgDiv.addClass("giphyBtn");
       imgDiv.attr("isClicked", "false");
       imgDiv.attr("id", "favgiphy" + i);
+      imgDiv.attr("alt", favCharacters[i].Alt);
       $("#favgc" + i).append(imgDiv);
       var ratingDiv = $("<div>");
 
