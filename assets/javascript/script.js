@@ -24,6 +24,11 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
 
+      if (response.data.length === 0) {
+        $("#results").text("No matching Giphys found. Please try again")
+
+      } else {
+
 
       /* only show this button when there is content, otherwise it is hidden */
       $("#show-more").css("display", "block");
@@ -73,7 +78,7 @@ $(document).ready(function () {
 
 
 
-
+      }
       };
 
 
@@ -128,7 +133,14 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (movieResponse) {
       console.log(movieResponse);
+
+      /* if no related movies found add a message else output movie info */
+      if (movieResponse.Response === "False") {
+        $("#mov-poster").text("No related movies found");
+        $("#mov-poster").css("padding-left", "95px");
+      } else {
       $("#mov-poster").empty();
+      $("#mov-poster").css("padding-left", "20px");
       $("#mov-info").empty();
       var movieTitle = $("<p>");
       movieTitle.text(movieResponse.Title);
@@ -142,7 +154,7 @@ $(document).ready(function () {
       $("#mov-info").append(movieTitle, moviePlot);
 
 
-
+      }
       /* end movie search*/
     });
 
@@ -231,6 +243,8 @@ $(document).ready(function () {
     /*Need to reset offset when button is clicked */
     offset = 0;
     $("#results").empty();
+    $("#mov-poster").empty();
+    $("#mov-info").empty();
     Search = $(this).attr("char-name");
     console.log("char btn clicked");
     getGiphy(Search);
