@@ -143,15 +143,23 @@ $(document).ready(function () {
       $("#mov-poster").css("padding-left", "20px");
       $("#mov-info").empty();
       var movieTitle = $("<p>");
-      movieTitle.text(movieResponse.Title);
+      movieTitle.text("Movie Title: " +movieResponse.Title);
       var moviePoster = $("<img>");
       moviePoster.attr("src", movieResponse.Poster);
 
+    var movYear=$("<p>");
+    movYear.text("Year made: " + movieResponse.Year);
+
+
+      var movCast = $("<p>");
+      movCast.text("Cast: " + movieResponse.Actors);
+
+
       $("#mov-poster").append(moviePoster);
       var moviePlot = $("<p>");
-      moviePlot.text(movieResponse.Plot);
+      moviePlot.text("Plot: " + movieResponse.Plot);
       moviePlot.addClass("plot-text");
-      $("#mov-info").append(movieTitle, moviePlot);
+      $("#mov-info").append(movieTitle,movYear, movCast, moviePlot);
 
 
       }
